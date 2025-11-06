@@ -1,22 +1,21 @@
-
-const display = document.getElementById('display');
-
-function appendToDisplay(input) {
-    display.value += input;
+function appendValue(value) {
+    document.getElementById('result').value += value;
 }
 
-function clearDisplay() {
-    display.value = '';
+function clearResult() {
+    document.getElementById('result').value = '';
 }
 
 function deleteLast() {
-    display.value = display.value.slice(0, -1);
+    let result = document.getElementById('result').value;
+    document.getElementById('result').value = result.slice(0, -1);
 }
 
 function calculateResult() {
     try {
-        display.value = eval(display.value);
+        let result = eval(document.getElementById('result').value);
+        document.getElementById('result').value = result;
     } catch (error) {
-        display.value = 'Error';
+        document.getElementById('result').value = 'Error';
     }
 }
